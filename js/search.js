@@ -4,9 +4,6 @@ var infowindow;
 function initMap() {
   var pyrmont = {lat: -33.867, lng: 151.195};
 
-  var pos = navigator.geolocation.getCurrentPosition(success, error, options);
-  console.log(pos);
-
   map = new google.maps.Map(document.getElementById('map'), {
     center: pyrmont,
     zoom: 15
