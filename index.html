@@ -1,52 +1,210 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <title>Oracle</title>
-    <link rel="stylesheet" href="css/framework7.ios.min.css">
-    <link rel="stylesheet" href="css/framework7.ios.colors.min.css">
-    <link rel="stylesheet" href="css/my-app.css">
-    <style>
-       #map {
-        height: 400px;
-        width: 100%;
-       }
-    </style>
-  </head>
-  <body>
-    <div class="statusbar-overlay"></div>
-    <div class="panel-overlay"></div>
-    <div class="views">
-      <div class="view view-main">
-        <div class="navbar">
-          <div class="navbar-inner">
-            <div class="center sliding">Oracle</div>
-          </div>
-        </div>
-        <div class="pages navbar-through toolbar-through">
-          <div data-page="index" class="page">
-            <div class="page-content">
-              <div class="content-block-title">L'oracle choisie pour vous ou manger.</div>
-              <div class="content-block">
-              	<div id="map"></div>
-              </div>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <title>Oracle</title>
+
+        <link rel="stylesheet" href="css/framework7.ios.min.css">
+        <link rel="stylesheet" href="css/framework7.ios.colors.min.css">
+        <link rel="stylesheet" href="css/my-app.css">
+    </head>
+
+    <body class="layout-dark">
+        <div class="statusbar-overlay"></div>
+        <div class="panel-overlay"></div>
+
+        <div class="panel panel-right panel-cover">
+            <div class="content-block">
+                <a href="#" class="close-panel">
+                    <span>X</span>
+                </a>
             </div>
-          </div>
+
+            <div class="list-block">
+                <ul>
+                    <li>
+                        <a href="#index" class="item-link item-content">
+                            <div class="item-inner">
+                                <div class="item-title">Accueil</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#login" class="item-link item-content">
+                            <div class="item-inner">
+                                <div class="item-title">Mon compte</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#login" class="item-link item-content">
+                            <div class="item-inner">
+                                <div class="item-title">Inscription</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#login" class="item-link item-content">
+                            <div class="item-inner">
+                                <div class="item-title">Connexion</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
-    </div>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcDWV4cZgk04GNjAlvzfKX0UKK9WIpCRo&signed_in=true&libraries=places&callback=initMap">
-    </script>
-    <script type="text/javascript" src="js/framework7.min.js"></script>
-    <script type="text/javascript" src="js/map.js"></script>
-    <script type="text/javascript" src="js/search.js"></script>
-    <script type="text/javascript" src="js/my-app.js"></script>
-    <script>
-      var online = navigator.onLine;
-      console.log(online);
-    </script>
-  </body>
+    
+        <div class="views">
+            <div class="view view-main">
+                <div class="navbar">
+                    <!-- Index page navbar -->
+                    <div class="navbar-inner" data-page="index">
+                        <div class="center">Oracle</div>
+                        <div class="right">
+                            <a href="#" class="link open-panel" data-panel="right">
+                                <i class="icon icon-bars"></i>
+                                <span>Menu</span>
+                            </a>
+                        </div>
+                    </div>
+            
+                    <!-- Login page navbar -->
+                    <div class="navbar-inner cached" data-page="login">
+                        <div class="left">
+                            <a href="#index" class="link">
+                                <i class="icon icon-back"></i>
+                                <span>Back</span>
+                            </a>
+                        </div>
+                        <div class="center">Login</div>
+                        <div class="right">
+                            <a href="#" class="link open-panel" data-panel="right">
+                                <i class="icon icon-bars"></i>
+                                <span>Menu</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pages navbar-through">
+                    <!-- INDEX -->
+                    <div data-page="index" class="page">
+                        <div class="page-content">
+                            <div class="content-block-title">
+                                Oracle
+                            </div>
+
+                            <div class="content-block">
+                                <p>Bonjour, <br>
+                                Inscris-toi ou connecte-toi pour avoir un suivi personnalisé !</p>
+
+                                <p class="buttons-row">
+                                    <a href="#login" class="button button-fill color-orange">Inscription</a>
+                                    <a href="#login" class="button button-fill color-blue">Connexion</a>
+                                </p>
+                            </div>
+
+                            <div class="content-block" style="display:none;">
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">Géolocalisation</div>
+                                        <div class="item-input">
+                                            <label class="label-switch">
+                                                <input type="checkbox">
+                                                <div class="checkbox"></div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="content-block">
+                                <a id="run" href="#" class="button button-big button-fill color-green open-popup" data-popup=".popup-result">Où manger ?</a>
+                            </div>
+
+                            <div class="content-block">
+                                <div id="map"></div>
+                            </div>
+                        </div>
+                    </div><!-- .page -->
+
+                    <!-- LOGIN -->
+                    <div class="page cached" data-page="login">
+                        <div class="page-content login-screen-content">
+                            <div class="login-screen-title">Connexion</div>
+                            <form>
+                                <div class="list-block">
+                                    <ul>
+                                        <li class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title label">Email</div>
+                                                <div class="item-input">
+                                                    <input id="email" type="email" name="email" placeholder="Email">
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title label">Password</div>
+                                                <div class="item-input">
+                                                    <input id="password" type="password" name="password" placeholder="Password">
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="list-block">
+                                    <ul>
+                                        <li>
+                                            <a id="connect" href="#" class="item-link list-button">Connexion</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </form>
+                        </div>
+                    </div> <!-- .page -->
+
+                </div> <!-- .pages -->
+            </div> <!-- .view .view-main -->
+        </div> <!-- .views -->
+
+        <!-- result popup -->
+        <div class="popup popup-result">
+            <div class="content-block">
+                <h3>Resultat</h3>
+
+                <div class="content-block">
+                    <h4 id="result-title"></h4>
+                    <img id="result-img" src="" alt="">
+                    <p id="result-description"></p>
+                </div>
+
+                <div class="content-block">
+                    <p class="buttons-row">
+                        <a href="#" class="button button-fill color-green close-popup">Oui!</a>
+                        <a href="#" class="button button-fill color-red close-popup">Non!</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
+        <script type="text/javascript" src="js/framework7.min.js"></script>
+        <script type="text/javascript" src="js/oracle/oracle.js"></script>
+        <script type="text/javascript" src="js/oracle/database.js"></script>
+        <script type="text/javascript" src="js/oracle/view.js"></script>
+        <script type="text/javascript" src="js/oracle/map.js"></script>
+
+        <script>
+            var view = new OracleView();
+            var map = new OracleMap();
+            var database = new OracleDatabase();
+
+            var app = new Oracle(view, map, database);
+        </script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcDWV4cZgk04GNjAlvzfKX0UKK9WIpCRo&signed_in=true&libraries=places&callback=map.initMap"></script>
+    </body>
 </html>
