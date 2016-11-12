@@ -10,6 +10,8 @@
         <link rel="stylesheet" href="css/framework7.ios.min.css">
         <link rel="stylesheet" href="css/framework7.ios.colors.min.css">
         <link rel="stylesheet" href="css/my-app.css">
+        
+        <link rel="manifest" href="static/manifest.json">
     </head>
 
     <body class="layout-dark">
@@ -197,13 +199,18 @@
         <script type="text/javascript" src="js/oracle/database.js"></script>
         <script type="text/javascript" src="js/oracle/view.js"></script>
         <script type="text/javascript" src="js/oracle/map.js"></script>
-
+        <script type="text/javascript" src="js/oracle/map.js"></script>
         <script>
             var view = new OracleView();
             var map = new OracleMap();
             var database = new OracleDatabase();
 
             var app = new Oracle(view, map, database);
+
+            if ('serviceWorker' in navigator) {
+              navigator.serviceWorker.register('service-worker.js');
+              console.log('service-worker enabled');
+            }
         </script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcDWV4cZgk04GNjAlvzfKX0UKK9WIpCRo&signed_in=true&libraries=places&callback=map.initMap"></script>
     </body>
