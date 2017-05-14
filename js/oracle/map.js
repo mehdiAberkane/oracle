@@ -1,10 +1,10 @@
-var OracleMap = function() {
+var OracleMap = function(radius = 150) {
     this.map = null;
     this._restaurants = [];
      this.userMarker = null;
      this.config = {
         location: null,
-        radius: 150,
+        radius: radius,
         types: ['food'],
         query: 'restaurant'
     };

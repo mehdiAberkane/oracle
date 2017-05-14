@@ -1,10 +1,11 @@
 var OracleDatabase = function() {
     this.config = {
-        apiKey: "AIzaSyB8FZwtlYDxBni9M3G-8fta9AD6rmZMS2E",
-        authDomain: "oracle-88740.firebaseapp.com",
-        databaseURL: "https://oracle-88740.firebaseio.com",
-        storageBucket: "oracle-88740.appspot.com",
-        messagingSenderId: "583073245986"
+        apiKey: "AIzaSyDJpfQVz7BACxymLt0y5BHmVpO63bS2HMQ",
+        authDomain: "oracle-2acdd.firebaseapp.com",
+        databaseURL: "https://oracle-2acdd.firebaseio.com",
+        projectId: "oracle-2acdd",
+        storageBucket: "oracle-2acdd.appspot.com",
+        messagingSenderId: "807258216272"
     };
     this.db = null;
     this.listener = {};
